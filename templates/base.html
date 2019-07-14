@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="kobaryubi">
+    <title>{% block title %}{% endblock %}</title>
+    {# --- css --- #}
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    {% include 'commons/main_header.html' %}
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            {% block breadcrumb %}{% endblock %}
+        </ol>
+    </nav>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    {% include 'commons/main_footer.html' %}
+
+    {# --- js --- #}
+    <script src="{% static 'js/common.js' %}"></script>
+    <script>
+        // For test
+        // document.write(location.pathname);
+    </script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
+
+
+
+
+
+
+
+

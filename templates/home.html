@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% block title %}FrontSamples{% endblock %}
+
+{% block content %}
+<meta http-equiv="refresh" content="0;URL={% url 'apps_menu:main_menu' %}">
+{% endblock %}
+
+{% block extra_js %}
+<script>
+</script>
+{% endblock %}

@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark navbar-fixed-top" id="js-navMainHeader">
+    <a class="navbar-brand" href="{% url 'apps_menu:main_menu' %}"
+>MySite</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsHeader" aria-controls="navbarsHeader" aria-expanded="false" aria-label="ToggleNavigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsHeader">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'apps_menu:main_menu' %}">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownApps" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Apps</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownApps">
+                    <a class="dropdown-item" href="{% url 'web_test_app:front_samples' %}">WebTestApp</a>
+                    <a class="dropdown-item" href="{% url 'favs_share_app:upload_favs' %}">FavsShareApp</a>
+                    <a class="dropdown-item" href="#">Coming Soon</a>
+                    <a class="dropdown-item" href="#">Coming Soon</a>
+                </div>
+            </li>
+        </ul>
+
+        <form class="form-inline my-2 my-md-0">
+            <input class="form-control" type="search" placeholder="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+
+        <ul class="navbar-nav navbar-right">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownAccount">
+                    <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+</nav>

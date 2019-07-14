@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% block title %}FrontSamples{% endblock %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="{% url 'apps_menu:main_menu' %}">Main Menu</a></li>
+<li class="breadcrumb-item active" aria-current="page">Favs Share</li>
+{% endblock %}
+
+{% block content %}
+upload
+{% endblock %}
+
+{% block extra_js %}
+<script>
+</script>
+{% endblock %}
