@@ -5,3 +5,4 @@ datashape==0.5.4
 mkl-fft==1.0.4
 navigator-updater==0.2.1
 odo==0.5.1
+pycurl==7.43.0.2
