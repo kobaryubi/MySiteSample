@@ -44,6 +44,7 @@ distributed==1.23.1
 Django==2.2.2
 django-allauth==0.39.1
 django-bootstrap4==0.0.8
+django-cleanup==4.0.0
 django-environ==0.4.5
 docutils==0.14
 entrypoints==0.2.3
