@@ -161,16 +161,26 @@ EMAIL_HOST_USER = app_secrets.EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = app_secrets.EMAIL_HOST_PASSWORD
 EMAIL_USE_TLS = True
 
-# development/staging/production
+# local/staging/production
 ENVIRONMENT_STAGES = [
     "local",
     "staging",
     "production",
 ]
-ENVIRONMENT_STAGE = ENVIRONMENT_STAGES[0]
+LOGIN_USER = os.getlogin()
+if LOGIN_USER in app_secrets.PRODUCTION_USERS:
+    ENVIRONMENT_STAGE = ENVIRONMENT_STAGES[2]
+    DEBUG = False
+elif LOGIN_USER in app_secrets.STAGING_USERS:
+    ENVIRONMENT_STAGE = ENVIRONMENT_STAGES[1]
+    DEBUG = True
+else:
+    ENVIRONMENT_STAGE = ENVIRONMENT_STAGES[0]
+    DEBUG = True
+
 if ENVIRONMENT_STAGE == ENVIRONMENT_STAGES[0] and DEBUG:
     from .local import *
-elif ENVIRONMENT_STAGE == ENVIRONMENT_STAGES[1]:
+elif ENVIRONMENT_STAGE == ENVIRONMENT_STAGES[1] and not DEBUG:
     from .staging import *
 elif ENVIRONMENT_STAGE == ENVIRONMENT_STAGES[2] and not DEBUG:
     from .production import *
