@@ -1,9 +1,6 @@
 import os
 from . import app_secrets
-
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PROJECT_NAME = os.path.basename(BASE_DIR)
+from .base import BASE_DIR, PROJECT_NAME
 
 ALLOWED_HOSTS = app_secrets.ALLOWED_HOSTS
 
