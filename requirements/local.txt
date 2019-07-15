@@ -3,3 +3,4 @@ blaze==0.11.3
 clyent==1.2.2
 datashape==0.5.4
 mkl-fft==1.0.4
+navigator-updater==0.2.1
