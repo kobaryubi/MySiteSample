@@ -1,0 +1,3 @@
+-r base.txt
+blaze==0.11.3
+clyent==1.2.2
