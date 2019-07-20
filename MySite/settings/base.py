@@ -168,7 +168,8 @@ ENVIRONMENT_STAGES = [
     "staging",
     "production",
 ]
-LOGIN_USER = os.getlogin()
+
+LOGIN_USER = app_secrets.LOGIN_USER
 if LOGIN_USER in app_secrets.PRODUCTION_USERS:
     ENVIRONMENT_STAGE = ENVIRONMENT_STAGES[2]
     DEBUG = False
