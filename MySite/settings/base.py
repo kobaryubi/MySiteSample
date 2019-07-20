@@ -156,6 +156,9 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = 'home'
 ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
 
+LOGIN_URL = '/accounts/login/'
+REDIRECT_FIELD_NAME = "redirect_to"
+
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = app_secrets.EMAIL_HOST_USER
