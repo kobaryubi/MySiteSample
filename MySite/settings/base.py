@@ -192,7 +192,5 @@ if ENVIRONMENT_STAGE == ENVIRONMENT_STAGES[0] and DEBUG:
     from .local import *
 elif ENVIRONMENT_STAGE == ENVIRONMENT_STAGES[1] and not DEBUG:
     from .staging import *
-    # STATICFILES_DIRS += os.path.join(BASE_DIR, 'MySite/venv/lib/python3.6/site-packages/django/contrib/admin/static')
 elif ENVIRONMENT_STAGE == ENVIRONMENT_STAGES[2] and not DEBUG:
     from .production import *
-    # STATICFILES_DIRS += os.path.join(BASE_DIR, 'MySite/venv/lib/python3.6/site-packages/django/contrib/admin/static')
