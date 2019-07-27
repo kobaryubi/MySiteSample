@@ -36,12 +36,6 @@ class BlogForm(forms.ModelForm):
         )
         return result
 
-"""
----- ModelForm
-ModelFormは連携するModelをもとにFieldが定義される．
-
-"""
-
 # {% if messages %}
 # <ul class="messages">
 #     {% for message in messages %}

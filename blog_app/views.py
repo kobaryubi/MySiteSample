@@ -54,37 +54,3 @@ class CreateBlogView(LoginRequiredMixin, CreateView):
     login_url = LOGIN_URL
     redirect_field_name = REDIRECT_FIELD_NAME
     success_url = reverse_lazy("blog_app:blogs_list")
-
-    def form_valid(self, form):
-        result = super().form_valid(form)
-        # messages.success(
-        #     self.request,
-        #     "{} was created.".format(form.instance)
-        # )
-        return result
-
-    # def get(self, request, *args, **kwargs):
-    #     context = self.get_context_data(**kwargs)
-    #     return self.render_to_response(context)
-
-# class CreateBlogView(LoginRequiredMixin, CreateView):
-#     model = Blogs
-#     form_class = BlogForm
-#     template_name = "blog_app/create_blog.html"
-#     login_url = LOGIN_URL
-#     redirect_field_name = REDIRECT_FIELD_NAME
-#     success_url = reverse_lazy("blog_app:blogs_list")
-#
-#     # def get(self, request, *args, **kwargs):
-#     #     context = self.get_context_data(**kwargs)
-#     #     return self.render_to_response(context)
-
-
-
-"""
--------- Djangoで通知メッセージを利用する(メッセージフレームワーク)
-Djangoを使って作成したウェブアプリケーション上でユーザのアクションに対し，そのプロセスの結果を画面上の通知メッセージとして返すための機能．
--------- DetailView
-個別詳細ページを作成するときに使用する．
-
-"""
