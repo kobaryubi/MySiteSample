@@ -16,6 +16,16 @@
 {% endblock %}
 
 {% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+            {{ message }}
+        </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
 <div class="container-fluid" style="margin-top: 60px;">
     <div class="row">
         <div class="col-md-6 offset-md-3 mb-3" >
