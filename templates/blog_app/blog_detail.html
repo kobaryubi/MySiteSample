@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% block title %}BlogsList{% endblock %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item">
+    <a href="{% url 'apps_menu:main_menu' %}">
+        Main Menu
+    </a>
+</li>
+<li class="breadcrumb-item">
+    <a href="{% url 'blog_app:blogs_list' %}">
+        Blogs List
+    </a>
+</li>
+<li class="breadcrumb-item active" aria-current="page">
+    Blog Detail
+</li>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid" style="margin-top: 60px;">
+    <div class="row">
+        <div class="col-md-6 offset-md-3" >
+            <div class="alert alert-success" role="alert">
+                <h4 class="alert-heading">{{ blog.title }}</h4>
+                <p>{{ blog.text | linebreaksbr}}</p>
+                <p class="text-muted">
+                    created at:{{ blog.created_at }}
+                </p>
+                <p class="text-muted">
+                    updated at:{{ blog.updated_at }}
+                </p>
+                <p>
+                    {% for category in blog.categories.all %}{{ category }},{% endfor %}
+                </p>
+                <a class="btn btn-primary" href="javascript:void(0);" onclick="window.history.back();">
+                    back
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+</script>
+{% endblock %}

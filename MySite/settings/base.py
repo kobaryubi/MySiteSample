@@ -33,6 +33,11 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts.apps.AccountsConfig',
+    'blog_app.apps.BlogAppConfig',
+    'favs_share_app.apps.FavsShareAppConfig',
+    'web_test_app.apps.WebTestAppConfig',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,8 +52,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.github',
 
     'bootstrap4',
-
-    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
@@ -136,7 +139,7 @@ MEDIA_URL = '/media/'
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 
@@ -151,6 +154,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = '/var/www/{}/static'.format(PROJECT_NAME)
+
+AUTH_USER_MODEL = 'auth.User'
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = 'home'

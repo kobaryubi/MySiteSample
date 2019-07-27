@@ -29,6 +29,7 @@ urlpatterns = [
     path('apps_menu/', include('apps_menu.urls'), name='apps_menu'),
     path('web_test_app/', include('web_test_app.urls'), name='web_test_app'),
     path('favs_share_app/', include('favs_share_app.urls'), name='favs_share_app'),
+    path('blog_app/', include('blog_app.urls'), name='blog_app'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
