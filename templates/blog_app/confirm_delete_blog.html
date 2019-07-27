@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% block title %}ConfirmDeleteBlog{% endblock %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item">
+    <a href="{% url 'apps_menu:main_menu' %}">
+        Main Menu
+    </a>
+</li>
+<li class="breadcrumb-item">
+    <a href="{% url 'blog_app:blogs_list' %}">
+        Blogs List
+    </a>
+</li>
+<li class="breadcrumb-item active" aria-current="page">
+    Confirm Delete Blog
+</li>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid" style="margin-top: 60px;">
+    <div class="row">
+        <div class="col-md-6 offset-md-3" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <p>Can I delete {{ blog }}?</p>
+                        <form method="post">
+                            {% csrf_token %}
+                            <button class="btn btn-danger">
+                                delete
+                            </button>
+                            <a class="btn btn-primary" href="javascript:void(0);" onclick="window.history.back();">
+                                back
+                            </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+</script>
+{% endblock %}

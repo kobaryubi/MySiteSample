@@ -38,6 +38,9 @@
                             <a href="{% url 'blog_app:blog_detail' blog.pk %}" class="card-link">
                                 read more
                             </a>
+                            <a class="btn btn-danger" href="{% url 'blog_app:confirm_delete_blog' blog.pk %}">
+                                delete
+                             </a>
                         </div>
                     {% endfor %}
             </div>

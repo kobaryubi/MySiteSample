@@ -54,3 +54,19 @@ class CreateBlogView(LoginRequiredMixin, CreateView):
     login_url = LOGIN_URL
     redirect_field_name = REDIRECT_FIELD_NAME
     success_url = reverse_lazy("blog_app:blogs_list")
+
+class ConfirmDeleteBlogView(LoginRequiredMixin, DeleteView):
+    model = Blog
+    form_class = BlogForm
+    template_name = "blog_app/confirm_delete_blog.html"
+    login_url = LOGIN_URL
+    redirect_field_name = REDIRECT_FIELD_NAME
+    success_url = reverse_lazy("blog_app:blogs_list")
+
+    def delete(self, request, *args, **kwargs):
+        result = super().delete(request, *args, **kwargs)
+        messages.success(
+            self.request,
+            '{} was deleted.'.format(self.object)
+        )
+        return result
