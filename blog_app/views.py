@@ -55,6 +55,22 @@ class CreateBlogView(LoginRequiredMixin, CreateView):
     redirect_field_name = REDIRECT_FIELD_NAME
     success_url = reverse_lazy("blog_app:blogs_list")
 
+    def form_valid(self, form):
+        result = super().form_valid(form)
+        messages.success(
+            self.request,
+            "{} was created.".format(form.instance)
+        )
+        return result
+
+    def form_invalid(self, form):
+        result = super().form_invalid(form)
+        messages.warning(
+            self.request,
+            "{} was not created.".format(form.instance)
+        )
+        return result
+
 class ConfirmDeleteBlogView(LoginRequiredMixin, DeleteView):
     model = Blog
     form_class = BlogForm

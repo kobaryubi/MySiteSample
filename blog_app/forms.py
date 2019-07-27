@@ -18,28 +18,3 @@ class BlogForm(forms.ModelForm):
         self.fields['title'].widget.attrs['placeholder'] = self.fields['title'].label
         self.fields['text'].widget.attrs['placeholder'] = self.fields['text'].label
         self.fields['categories'].widget.attrs['size'] = "5"
-
-#
-    def form_valid(self, form):
-        result = super().form_valid(form)
-        messages.success(
-            self.request,
-            "{} was created.".format(form.instance)
-        )
-        return result
-
-    def form_invalid(self, form):
-        result = super().form_invalid(form)
-        messages.warning(
-            self.request,
-            "{} was not created.".format(form.instance)
-        )
-        return result
-
-# {% if messages %}
-# <ul class="messages">
-#     {% for message in messages %}
-#     <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-#     {% endfor %}
-# </ul>
-# {% endif %}
