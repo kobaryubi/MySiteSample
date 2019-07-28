@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.http.response import HttpResponse
 from django.contrib import messages
-from django.views.generic import TemplateView, ListView, CreateView, DeleteView, DetailView
+from django.views.generic import TemplateView, ListView, CreateView, DeleteView, DetailView, UpdateView
 from django.views.generic.edit import FormView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -56,6 +56,10 @@ class CreateBlogView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy("blog_app:blogs_list")
 
     def form_valid(self, form):
+        if form.instance.created_by_id is None:
+            form.instance.created_by = self.request.user
+        if form.instance.updated_by_id is None:
+            form.instance.updated_by = self.request.user
         result = super().form_valid(form)
         messages.success(
             self.request,
@@ -68,6 +72,33 @@ class CreateBlogView(LoginRequiredMixin, CreateView):
         messages.warning(
             self.request,
             "{} was not created.".format(form.instance)
+        )
+        return result
+
+class UpdateBlogView(LoginRequiredMixin, UpdateView):
+    model = Blog
+    form_class = BlogForm
+    template_name = "blog_app/update_blog.html"
+    pk_url_kwarg = "pk"
+    context_object_name = "blog"
+    login_url = LOGIN_URL
+    redirect_field_name = REDIRECT_FIELD_NAME
+    success_url = reverse_lazy("blog_app:blogs_list")
+
+    def form_valid(self, form):
+        form.instance.updated_by = self.request.user
+        result = super().form_valid(form)
+        messages.success(
+            self.request,
+            "{} was updated.".format(form.instance)
+        )
+        return result
+
+    def form_invalid(self, form):
+        result = super().form_invalid(form)
+        messages.warning(
+            self.request,
+            "{} was not updated.".format(form.instance)
         )
         return result
 

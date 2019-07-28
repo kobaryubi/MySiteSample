@@ -15,6 +15,7 @@ class BlogForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         for field in self.fields.values():
             field.widget.attrs["class"] = "form-control"
+            field.widget.render_value = True
         self.fields['title'].widget.attrs['placeholder'] = self.fields['title'].label
         self.fields['text'].widget.attrs['placeholder'] = self.fields['text'].label
         self.fields['categories'].widget.attrs['size'] = "5"
