@@ -5,12 +5,13 @@
 {% bootstrap_javascript jquery='full' %}
 <html lang="en">
 <head>
-    {% include 'commons/ga.html' %}
+    {% include 'commons/google_analytics.html' %}
 
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="kobaryubi">
     <title>{% block title %}{% endblock %}</title>
+    <base href="https://kobaryubi.com/"/>
     {# --- css --- #}
     {% block extra_css %}{% endblock %}
 </head>
